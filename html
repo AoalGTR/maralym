@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MaralYm — магазин одежды</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <strong>MaralYm</strong>
+        <span>магазин одежды и стильных образов</span>
+      </div>
+
+      <nav class="nav" aria-label="Главная навигация">
+        <a href="#home">Главная</a>
+        <a href="#catalog">Каталог</a>
+        <a href="#about">О нас</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="container hero-card">
+        <div class="hero-top">
+          <div class="hero-brand">MARALYM</div>
+          <div class="hero-controls">
+            <button class="lang-btn" type="button">Русский</button>
+            <a class="signin-btn" href="#contacts">Вход</a>
+          </div>
+        </div>
+
+        <div class="hero-center">
+          <h1>Новая коллекция одежды, которую хочется носить каждый день</h1>
+          <p class="hero-subtitle">Каталог с актуальными моделями и ценами. Доставка по городу и по Кыргызстану.</p>
+          <p class="hero-note">Хотите получить подборку новинок? Оставьте email.</p>
+
+          <form class="hero-form" onsubmit="event.preventDefault(); alert('Спасибо! Мы отправим подборку новинок на ваш email.');">
+            <input type="email" placeholder="Ваш email" aria-label="Email" required>
+            <button type="submit" class="hero-cta">Получить подборку</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="catalog">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Каталог товаров</h2>
+            <p>Примеры товаров с ценами, чтобы можно было сразу посмотреть ассортимент.</p>
+          </div>
+        </div>
+
+        <div class="filters" aria-label="Фильтры каталога">
+          <button class="filter-btn active" data-filter="all">Все товары</button>
+          <button class="filter-btn" data-filter="shirts">Рубашки</button>
+          <button class="filter-btn" data-filter="pants">Брюки</button>
+          <button class="filter-btn" data-filter="dresses">Платья</button>
+          <button class="filter-btn" data-filter="outerwear">Куртки</button>
+        </div>
+
+        <div class="products" id="products"></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>О магазине</h2>
+            <p>Коротко о бренде и о том, чем полезен этот сайт-визитка.</p>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <article class="panel">
+            <h3>Почему MaralYm</h3>
+            <p>
+              Мы показываем товары в удобном и визуально чистом формате: без лишнего
+              шума, но с акцентом на стиль, цену и быстрый выбор.
+            </p>
+            <ul class="list">
+              <li>Понятная структура страницы</li>
+              <li>Фильтрация товаров по категориям</li>
+              <li>Адаптация под телефон и компьютер</li>
+              <li>Простой просмотр карточек товара</li>
+            </ul>
+          </article>
+
+          <article class="panel">
+            <h3>Как использовать</h3>
+            <p>
+              Меняй названия, цены и контакты под свой магазин, и готовый сайт сразу
+              будет работать как визитка.
+            </p>
+            <ul class="list">
+              <li>Подходит для магазина одежды</li>
+              <li>Подходит для шоурума</li>
+              <li>Подходит для учебной работы</li>
+              <li>Можно расширить до интернет-магазина</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacts">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Контакты</h2>
+            <p>Реальные данные можно заменить на свои в любой момент.</p>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <strong>Телефон</strong>
+            <div>+7 (777) 123-45-67</div>
+          </div>
+          <div class="contact-item">
+            <strong>Email</strong>
+            <div>info@maralym.ru</div>
+          </div>
+          <div class="contact-item">
+            <strong>Адрес</strong>
+            <div>г. Бишкек, ул. Модная, 12</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© 2026 MaralYm. Сайт-визитка магазина одежды.</div>
+      <div>Дизайн, каталог и контакты на одной странице.</div>
+    </div>
+  </footer>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-visual" id="modalVisual">
+        <div class="badge" id="modalCategoryBadge">Категория</div>
+        <div>
+          <h3 id="modalTitleVisual">Название товара</h3>
+          <div id="modalMiniText">Краткое описание</div>
+        </div>
+      </div>
+
+      <div class="modal-content">
+        <button class="close" id="closeModal" aria-label="Закрыть окно">&times;</button>
+        <h2 id="modalTitle">Название товара</h2>
+        <div class="modal-meta" id="modalMeta"></div>
+        <div class="modal-price" id="modalPrice">0 ₸</div>
+        <p id="modalDescription"></p>
+        <button class="btn btn-primary" style="margin-top: 10px;" id="buyBtn">Связаться для заказа</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
